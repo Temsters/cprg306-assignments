@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-
+//student info component
 export default function StudentInfo() {
   return (
     <main>

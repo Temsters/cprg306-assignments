@@ -1,6 +1,6 @@
 //main page
 import Link from 'next/link';
-
+//week 2 page
 export default function Page() {
   return (
     <main>
