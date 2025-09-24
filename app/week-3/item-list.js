@@ -1,3 +1,5 @@
+import Item from "./item";
+
 //item list component
 export default function ItemList() {
   
@@ -71,4 +73,25 @@ const item12 = {
   name: "hand soap 🧼",
   quantity: 4,
   category: "household",
-}; }
+};
+
+//Move data into an array
+const items = [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12];
+
+//Map list items into JSX nodes
+const itemList = items.map((item, index) => (
+  <Item 
+    key={index}
+    name={item.name}
+    quantity={item.quantity}
+    category={item.category}
+    bgColor={index % 2 === 0 ? "bg-[oklch(44.3%_0.11_240.79)]" : "bg-[oklch(29.3%_0.066_243.157)]"}
+  />
+));
+
+//Return the list of items wrapped in a div
+  return <div>{itemList}</div>;
+}
+
+
+
