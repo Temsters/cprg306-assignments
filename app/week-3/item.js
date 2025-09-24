@@ -1,30 +1,14 @@
 
 //item component accepting name, quantity, category as props
-function Item({ name, quantity, category }) {
+export default function Item({ name, quantity, category, bgColor }) {
   return (
-    <article className="my-12 max-w-sm bg-blue-400 rounded-md p-4">
-      <h2 className="text-2xl font-black">Shopping List Items</h2>
-      {/* displaying the props in a list */}
-      <ul>
-        <li>Name: {name}</li>
-        <li>Quantity: {quantity}</li>
-        <li>Category: {category}</li>
+    <div className={`my-2 max-w-sm p-2 rounded-lg mx-auto text-center shadow-md ${bgColor}`}>
+      <ul className="space-y-2">
+        <li><span className="font-semibold">Name:</span> {name}</li>
+        <li><span className="font-semibold">Quantity:</span> {quantity}</li>
+        <li><span className="font-semibold">Category:</span> {category}</li>
       </ul>
-    </article>
+    </div>
   );
 }
 
-// export default function Item(name, quantity, category) {
- 
-//   return (
-//     <article className="my-12 max-w-sm bg-blue-400 rounded-md p-4">
-//     <h2 className="text-2xl font-black">Shopping List Items</h2>
-//       <h2 className="text-2xl font-black">Shopping List Items</h2>
-//       <ul>
-//         <li>Name: {name}</li>
-//         <li>Quantity: {quantity}</li>
-//         <li>Category: {category}</li>
-//       </ul>
-//     </article>
-//   );
-// }
