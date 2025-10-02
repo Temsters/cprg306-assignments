@@ -1,5 +1,4 @@
 //week 4 page component that renders NewItem component
-
 import NewItem from "./new-item";  
 
 export default function Page() {
