@@ -18,9 +18,28 @@ export default function NewItem() {
   }
 
   return (
-    <p>Quantity: {quantity}</p>
-    
-  
-);
+    <div>
+      <p>Quantity: {quantity}</p>
+
+      {/* Decrement button (-)
+      //Calls decrement function on click and disabled if quantity is 1 */}
+      <button
+        onClick={decrement}
+        className="bg-blue-500 text-white px-4 py-2 rounded mr-2 disabled:opacity-50"
+        >
+          Decrement
+        </button>
+      {/* Increment button (+)
+      //Calls increment function on click and disabled if quantity is 20 */}
+      <button
+        onClick={increment}
+        className="bg-green-500 text-white px-4 py-2 rounded disabled:opacity-50"
+      >
+        Increment
+      </button>
+    </div>
+  );
+
+
 }
 
