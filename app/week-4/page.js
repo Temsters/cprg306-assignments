@@ -3,8 +3,8 @@ import NewItem from "./new-item";
 
 export default function Page() {
   return (
-    <main className="space-y-2 text-white">
-      <h1 className="my-12 text-3xl font-bold text-white">Add New Item</h1>
+    <main className="space-y-2 space-x-0 text-blue-500">
+      <h1 className="max-w-screen my-3 text-3xl font-bold text-blue-500 pl-10 rounded-b p-3">Add New Item</h1>
       <NewItem />
     </main>
   );
