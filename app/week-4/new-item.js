@@ -23,8 +23,8 @@ export default function NewItem() {
   }
 
   return (
-  <div className=" max-w-md bg-blue-100 rounded-b lg:rounded ml-5 p-6 border-2 border-blue-300">
-    <p className=" text-blue-500 font-bold text-3xl mb-4 ">Quantity: {quantity}</p>
+  <div className=" max-w-md bg-blue-100 rounded-b lg:rounded ml-5 p-6 pt-6 border-2 border-blue-300">
+    <p className=" text-blue-500 font-bold text-2xl mb-4 ">Quantity: {quantity}</p>
     <div className="flex gap-4 mb-4 my-1 pl">
       {/* Decrement button (-)s
       //Calls decrement function on click and disabled if quantity is 1 */}
