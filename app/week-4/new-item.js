@@ -23,15 +23,15 @@ export default function NewItem() {
   }
 
   return (
-    <div>
-      <p>Quantity: {quantity}</p>
-
-      {/* Decrement button (-)
+  <div className=" max-w-md bg-blue-100 rounded-b lg:rounded ml-5 p-6 border-2 border-blue-300">
+    <p className=" text-blue-500 font-bold text-3xl mb-4 ">Quantity: {quantity}</p>
+    <div className="flex gap-4 mb-4 my-1 pl">
+      {/* Decrement button (-)s
       //Calls decrement function on click and disabled if quantity is 1 */}
       <button
         onClick={decrement}
         disabled={quantity === minQuantity}
-        className="bg-blue-500 text-white px-4 py-2 rounded mr-2 disabled:opacity-50"
+        className="bg-blue-500 text-white rounded p-4 border-2 disabled:bg-blue-300 disabled:cursor-not-allowed"
         >
           Decrement
         </button>
@@ -40,13 +40,14 @@ export default function NewItem() {
       <button
         onClick={increment}
         disabled={quantity === maxQuantity}
-        className="bg-green-500 text-white px-4 py-2 rounded disabled:opacity-50"
+        className="bg-green-500 text-white rounded p-4 border-2 disabled:bg-green-300 disabled:cursor-not-allowed"
       >
         Increment
       </button>
-
-      <p>Allowed range: 1 - 20</p>
     </div>
+     <p className="text-black italic font-serif">Allowed range: 1 - 20</p>
+  </div>
+
   );
 
 
