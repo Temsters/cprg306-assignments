@@ -7,9 +7,9 @@ export default function NewItem() {
   //State variable called quantity & setter called setQuantity
   const [quantity, setQuantity] = useState(1);
 
-  //State variable to handle max quantity
+  //Constant to handle max quantity
   const maxQuantity = 20;
-  //State variable to handle min quantity
+  //Constant to handle min quantity
   const minQuantity = 1;
   
   //Increment function to increase quantity by 1 with a max of 20
