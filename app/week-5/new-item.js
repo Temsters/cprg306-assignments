@@ -7,12 +7,6 @@ export default function NewItem() {
   //State variable called quantity & setter called setQuantity
   const [quantity, setQuantity] = useState(1);
 
-  //State variable called name & setter called setName
-  const [name, setName] = useState("");
-
-  //State variable called category and setter function called setCategory
-  const [category, setCategory] = useState("produce")
-
   //Constant to handle max quantity
   const maxQuantity = 20;
   //Constant to handle min quantity
