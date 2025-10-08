@@ -29,8 +29,18 @@ export default function NewItem() {
   }
 
   return (
+    
   <div className=" max-w-md bg-blue-100 rounded-b lg:rounded ml-5 p-6 pt-6 border-2 border-blue-300">
-    <p className=" text-blue-500 font-bold text-2xl mb-4 ">Quantity: {quantity}</p>
+    <p className="font-bold text-2xl mb-4"> Item Name</p>
+    <input
+      type="text"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      className="w-full p-2 border border-blue-300 rounded mb-4"
+      placeholder="e.g., milk, 4L🥛"
+    />
+    <p className="font-bold text-2xl mb-4"> Quantity (1-20) </p>
+    <p className=" text-blue-500 font-bold text-2xl mb-4 ">Current: {quantity}</p>
     <div className="flex gap-4 mb-4 my-1 pl">
       {/* Decrement button (-)s
       //Calls decrement function on click and disabled if quantity is 1 */}
