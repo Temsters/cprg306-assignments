@@ -1,4 +1,5 @@
 "use client";
+import SimpleFormSubmission from "../components/SimpleFormSubmission";
 import { useState } from "react";
 
 //New item component
@@ -7,9 +8,14 @@ export default function NewItem() {
   //State variable called quantity & setter called setQuantity
   const [quantity, setQuantity] = useState(1);
 
-  //Constant to handle max quantity
+  //State variable to handle form data
+  const [formData, setFormData] = useState("");
+  function handleData(data) {
+    setFormData(data);
+  }
+
+  //Quantity limits
   const maxQuantity = 20;
-  //Constant to handle min quantity
   const minQuantity = 1;
   
   //Increment function to increase quantity by 1 with a max of 20
@@ -25,23 +31,22 @@ export default function NewItem() {
   return (
     
   <div className=" max-w-md bg-blue-100 rounded-b lg:rounded ml-5 p-6 pt-6 border-2 border-blue-300">
-    <p className="font-bold text-2xl mb-4"> Item Name</p>
-    <input
-      type="text"
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-      className="w-full p-2 border border-blue-300 rounded mb-4"
-      placeholder="e.g., milk, 4L🥛"
-    />
-    <p className="font-bold text-2xl mb-4"> Quantity (1-20) </p>
-    <p className=" text-blue-500 font-bold text-2xl mb-4 ">Current: {quantity}</p>
+    <h2 className="text-black text-xl mb-4">New Item</h2>
+    
+    
+      {/* Form component */}
+      <SimpleFormSubmission onDataSend={handleData} />
+
+    {/* Quantity Section */}
+    <p className="text-xl mb-4"> Quantity(1-20) </p>
+    <h2 className="text-xl mb-4 ">Current: {quantity}</h2>
     <div className="flex gap-4 mb-4 my-1 pl">
       {/* Decrement button (-)s
-      //Calls decrement function on click and disabled if quantity is 1 */}
+      //Calls decrement functiblackson on click and disabled if quantity is 1 */}
       <button
         onClick={decrement}
         disabled={quantity === minQuantity}
-        className="bg-blue-500 text-white rounded p-4 border-2 disabled:bg-blue-300 disabled:cursor-not-allowed"
+        className="bg-blue-500 text-black white rounded p-4 border-2 border-black disabled:bg-blue-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
         >
           Decrement
         </button>
@@ -50,7 +55,7 @@ export default function NewItem() {
       <button
         onClick={increment}
         disabled={quantity === maxQuantity}
-        className="bg-green-500 text-white rounded p-4 border-2 disabled:bg-green-300 disabled:cursor-not-allowed"
+        className="bg-green-500 text-black white rounded p-4 border-2 border-black disabled:bg-green-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
       >
         Increment
       </button>
