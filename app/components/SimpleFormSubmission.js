@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 //Create handleSubmit function to handle form submission
-export default function SimpleFormSubmission({ onDataSend}) {
+export default function SimpleFormSubmission({onDataSend}) {
 
   //State variables
   const [name, setName] = useState("");
@@ -26,13 +26,9 @@ export default function SimpleFormSubmission({ onDataSend}) {
   //Handle form submission
   function handleSubmit(event) {
     event.preventDefault();
-
-  //Create the Item object 
-    const item = {
-      name,
-      category,
-      quantity
-    };
+    //Create the Item object 
+    const item = { name, category, quantity };
+    onDataSend(item);
 
     //Display alert with current state of name quantity and category
     alert(
@@ -42,13 +38,14 @@ export default function SimpleFormSubmission({ onDataSend}) {
       `Category: ${item.category}`
     );
 
-    //Reset the state variables to their initial values
-    setName("");
-    setCategory("produce");
-
     //Log the item object to the console
     console.log("Your new item:", item);
-  }
+
+      //Reset the state variables to their initial values
+    setName("");
+    setCategory("produce");
+    setQuantity(1);
+};
 
     return (
       //Create form with onSubmit event handler
@@ -69,6 +66,7 @@ export default function SimpleFormSubmission({ onDataSend}) {
       //Calls decrement functiblackson on click and disabled if quantity is 1 */}
       <button
         onClick={decrement}
+        type="button"
         disabled={quantity === minQuantity}
         className="bg-blue-200 text-black white rounded-2xl p-4 border-2 border-black  disabled:bg-blue-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
       >
@@ -78,6 +76,7 @@ export default function SimpleFormSubmission({ onDataSend}) {
       //Calls increment function on click and disabled if quantity is 20 */}
       <button
         onClick={increment}
+        type="button"
         disabled={quantity === maxQuantity}
         className="bg-blue-200 dark:bg-blue-500 text-black white rounded-2xl p-4 border-2 border-black   disabled:bg-green-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
       >
@@ -102,9 +101,15 @@ export default function SimpleFormSubmission({ onDataSend}) {
         <option value="household">Household</option>
         <option value="other">Other</option>
       </select>
+
+       {/* Submit button */}
+      <div className="flex justify-center">
+        <button type="submit" className="bg-blue-200  dark:bg-blue-500  text-black dark:text-black rounded-2xl p-2 border-2 border-black transform hover:scale-105 transition duration-200 ease-in-out">Add New Item </button>
+      </div>      
       </form>
     );
   }
+  
   
 
 
