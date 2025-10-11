@@ -70,16 +70,16 @@ export default function SimpleFormSubmission({ onDataSend}) {
       <button
         onClick={decrement}
         disabled={quantity === minQuantity}
-        className="bg-blue-500 text-black white rounded p-4 border-2 border-black  dark:border-blue-500  disabled:bg-blue-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
-        >
-          Decrement
-        </button>
+        className="bg-blue-200 text-black white rounded-2xl p-4 border-2 border-black  disabled:bg-blue-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
+      >
+        Decrement
+      </button>
       {/* Increment button (+)
       //Calls increment function on click and disabled if quantity is 20 */}
       <button
         onClick={increment}
         disabled={quantity === maxQuantity}
-        className="bg-green-500 text-black white rounded p-4 border-2 border-black  dark:border-blue-500  disabled:bg-green-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
+        className="bg-blue-200 dark:bg-blue-500 text-black white rounded-2xl p-4 border-2 border-black   disabled:bg-green-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
       >
         Increment
       </button>
