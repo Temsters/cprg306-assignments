@@ -52,25 +52,25 @@ export default function SimpleFormSubmission({ onDataSend}) {
 
     return (
       //Create form with onSubmit event handler
-      <form className="mb-4 border-2 border-blue-300 p-6 rounded-lg bg-white shadow-sm" onSubmit={handleSubmit}>
+      <form className="mb-4 border-2 border-blue-300 p-6 rounded-lg bg-white dark:bg-gray-900 dark:border-gray-700 shadow-sm" onSubmit={handleSubmit}>
  
       {/* Label for item name */}
-      <label htmlFor="itemName" className="block mb-2 text-lg font-semibold text-gray-800"> Item Name: </label>
+      <label htmlFor="itemName" className="block mb-2 text-lg font-semibold text-gray-800  dark:text-gray-300"> Item Name: </label>
 
       {/* Input field */}
       <input id="itemName" type="text" placeholder="e.g., milk, 4L🥛" value={name} onChange={(e) => setName(e.target.value)} required 
       className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" />
       
        {/* Quantity Section */}
-      <p className="text-xl mb-4"> Quantity(1-20) </p>
-      <h2 className="text-xl mb-4 ">Current: {quantity}</h2>
+      <p className="block mb-2 text-sm font-semibold italic text-gray-800  dark:text-gray-300"> Quantity (1-20) </p>
+      <h2 className="block mb-2 text-lg font-semibold text-gray-800  dark:text-gray-300">Current: {quantity}</h2>
       <div className="flex gap-4 mb-4 my-1 pl">
       {/* Decrement button (-)s
       //Calls decrement functiblackson on click and disabled if quantity is 1 */}
       <button
         onClick={decrement}
         disabled={quantity === minQuantity}
-        className="bg-blue-500 text-black white rounded p-4 border-2 border-black disabled:bg-blue-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
+        className="bg-blue-500 text-black white rounded p-4 border-2 border-black  dark:border-blue-500  disabled:bg-blue-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
         >
           Decrement
         </button>
@@ -79,14 +79,16 @@ export default function SimpleFormSubmission({ onDataSend}) {
       <button
         onClick={increment}
         disabled={quantity === maxQuantity}
-        className="bg-green-500 text-black white rounded p-4 border-2 border-black disabled:bg-green-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
+        className="bg-green-500 text-black white rounded p-4 border-2 border-black  dark:border-blue-500  disabled:bg-green-300 disabled:cursor-not-allowed transform hover:scale-105 transition duration-200 ease-in-out"
       >
         Increment
       </button>
+      <br/>
+       <p className="block mb-2 text-xs pt-3  text-center font-semibold italic text-gray-800  dark:text-gray-300">Allowed Range (1-20) </p>
     </div>
 
       {/*Category field*/}
-      <label htmlFor="category" className="block mb-2 text-lg font-semibold text-gray-800"> Category: </label>
+      <label htmlFor="category" className="block mb-2 text-lg font-semibold text-gray-800 dark:text-gray-300"> Category: </label>
       <select id="category" value={category} onChange={(e) => setCategory(e.target.value)} required
       className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
         <option value="produce">Produce</option>
