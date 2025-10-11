@@ -31,11 +31,9 @@ export default function NewItem() {
   return (
     
   <div className=" max-w-md bg-blue-100 rounded-b lg:rounded ml-5 p-6 pt-6 border-2 border-blue-300">
-    <h2 className="text-black text-xl mb-4">New Item</h2>
-    
-    
+
       {/* Form component */}
-      <SimpleFormSubmission onDataSend={handleData} />
+      <SimpleFormSubmission onDataSend={handleData} quantity={quantity} />
 
     {/* Quantity Section */}
     <p className="text-xl mb-4"> Quantity(1-20) </p>
