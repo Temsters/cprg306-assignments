@@ -2,10 +2,10 @@
 
 import Item from "./item";
 import { useState } from "react";
-import items from "./items.json";
+
 
 //item list component
-export default function ItemList() {
+export default function ItemList({ items }) {
   //State variable called sortBy & setter called setSortBy
   const [sortBy, setSortBy] = useState("name");
 
