@@ -47,11 +47,10 @@ export default function SimpleFormSubmission({onAddItem}) {
 };
 
     return (
-      //Create form with onSubmit event handler
-      <form className="mb-4 border-2 border-blue-300 p-6 rounded-lg bg-white dark:bg-gray-900 dark:border-gray-700 shadow-sm" onSubmit={handleSubmit}>
- 
-      {/* Label for item name */}
-      <label htmlFor="itemName" className="block mb-2 text-lg font-semibold text-gray-800  dark:text-gray-300"> Item Name: </label>
+      //Align form centered
+        <form className="mb-4 border-2 border-blue-300 p-6 rounded-lg bg-blue-400 dark:bg-gray-900 dark:border-gray-700 shadow-sm" onSubmit={handleSubmit}>
+          {/* Label for item name */}
+          <label htmlFor="itemName" className="block mb-2 text-lg font-semibold text-gray-800  dark:text-gray-300"> Item Name: </label>
 
       {/* Input field */}
       <input id="itemName" type="text" placeholder="e.g., milk, 4L🥛" value={name} onChange={(e) => setName(e.target.value)} required 
@@ -88,7 +87,7 @@ export default function SimpleFormSubmission({onAddItem}) {
       {/*Category field*/}
       <label htmlFor="category" className="block mb-2 text-lg font-semibold text-gray-800 dark:text-gray-300"> Category: </label>
       <select id="category" value={category} onChange={(e) => setCategory(e.target.value)} required
-      className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+      className="w-full mb-4 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-200 text-white">
         <option value="produce">Produce</option>
         <option value="dairy">Dairy</option>
         <option value="meat">Meat</option>
