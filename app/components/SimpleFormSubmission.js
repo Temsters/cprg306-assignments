@@ -36,8 +36,6 @@ export default function SimpleFormSubmission({onAddItem}) {
   const item = { id, name, category, quantity };
   onAddItem(item);
 
-  //Call the onAddItem prop
-  onAddItem(item);
   
   //Log the item object to the console
   console.log("Your new item:", item);
