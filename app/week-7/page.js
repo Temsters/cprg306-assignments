@@ -16,8 +16,8 @@ export default function Page() {
   };
 
 return (
- <main className="space-y-2 text-white">
-      <h1 className="my-12 text-3xl font-bold bg-[oklch(50%_0.134_242.749)] rounded-bl-lg text-center shadow-md text-white mb-5">
+ <main className="flex justify-center items-center min-h-screen space-y-2 text-white flex-col  justify-center min-h-screen bg-gradient-to-b from-blue-400 to-blue-600 dark:from-gray-800 dark:to-gray-900 p-4">
+      <h1 className="my-12 text-3xl font-bold bg-blue-500 dark:bg-[oklch(50%_0.134_242.749)] rounded-bl-lg text-center shadow-md text-white mb-5">
         Week 7 - Shopping List
       </h1>
 
