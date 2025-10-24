@@ -1,8 +1,10 @@
 "use client";
 import { useState } from "react";
 
+
+
 //Create handleSubmit function to handle form submission
-export default function SimpleFormSubmission({onDataSend}) {
+export default function SimpleFormSubmission({onAddItem}) {
 
   //State variables
   const [name, setName] = useState("");
@@ -26,25 +28,24 @@ export default function SimpleFormSubmission({onDataSend}) {
   //Handle form submission
   function handleSubmit(event) {
     event.preventDefault();
-    //Create the Item object 
-    const item = { name, category, quantity };
-    onDataSend(item);
+    
+  //Generate a random id
+  const id = crypto.randomUUID();
 
-    //Display alert with current state of name quantity and category
-    alert(
-      `Your new item:\n` +
-      `Name: ${item.name}\n` +
-      `Quantity: ${item.quantity}\n` +
-      `Category: ${item.category}`
-    );
+  //Create the Item object 
+  const item = { id, name, category, quantity };
+  onAddItem(item);
 
-    //Log the item object to the console
-    console.log("Your new item:", item);
+  //Call the onAddItem prop
+  onAddItem(item);
+  
+  //Log the item object to the console
+  console.log("Your new item:", item);
 
-      //Reset the state variables to their initial values
-    setName("");
-    setCategory("produce");
-    setQuantity(1);
+  //Reset the state variables to their initial values
+  setName("");
+  setCategory("produce");
+  setQuantity(1);
 };
 
     return (
