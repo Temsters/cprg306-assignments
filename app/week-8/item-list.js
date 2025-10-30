@@ -5,7 +5,7 @@ import { useState } from "react";
 
 
 //item list component
-export default function ItemList({ items }) {
+export default function ItemList({ items, onSelectItem }) {
   //State variable called sortBy & setter called setSortBy
   const [sortBy, setSortBy] = useState("name");
 
@@ -63,6 +63,9 @@ export default function ItemList({ items }) {
           ? "bg-[oklch(44.3%_0.11_240.79)]"
           : "bg-[oklch(29.3%_0.066_243.157)]"
       }
+      
+      //Pass onSelect prop to Item component
+      onSelect={() => onSelectItem(item.name)}
     />
   ));
 
