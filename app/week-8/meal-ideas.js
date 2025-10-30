@@ -36,7 +36,7 @@ useEffect(() => {
   
 return (
     <div>
-      <h2>Meal Ideas</h2>
+      <h2 className="block mb-2 text-lg font-semibold text-gray-800  dark:text-gray-300">Meal Ideas (select an ingredient)</h2>
     {/*List of meals */}
       <ul>
         {meals.map((meal) => (
