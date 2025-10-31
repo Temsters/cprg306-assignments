@@ -6,13 +6,18 @@ import { useState, useEffect } from "react";
 async function fetchMealIdeas(ingredient) {
   try {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+    if (!response.ok) {
+      throw new Error(
+        `HTTP Error! status ${response.status}\n ${response.message}`
+      );
+    }
     const data = await response.json();
-
     return data.meals || [];
   } catch (error) {
     console.error("Error fetching meal ideas:", error);
     return [];
   }
+  
 }
 
 //Meal Idea component 
@@ -33,11 +38,14 @@ useEffect(() => {
     loadMealIdeas();
   }
 }, [ingredient]); //call loadMealIdeas whenever ingredient prop changes
-  
+
+
 return (
     <div>
-      <h2 className="block mb-2 text-lg font-semibold text-gray-800  dark:text-gray-300">Meal Ideas (select an ingredient)</h2>
     {/*List of meals */}
+    {!meals || meals.length === 0 ? (
+      <p>No meals found!</p>
+    ) : (
       <ul>
         {meals.map((meal) => (
           <li key={meal.idMeal}>
@@ -46,6 +54,7 @@ return (
           </li>
         ))}
       </ul>
+    )}
     </div>
   );
 }
