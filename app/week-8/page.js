@@ -23,6 +23,7 @@ export default function Page() {
   const handleItemSelect = (itemName) => {
     let cleanedName = itemName.trim().toLowerCase();
     cleanedName = cleanedName.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
+    console.log("Selected ingredient:", cleanedName);
     setSelectedItemName(cleanedName);
   }
 
@@ -42,6 +43,8 @@ return (
 
         {/* Right side: Meal ideas */}
         <div className="flex-1">
+          <h2 className="block mb-2 text-lg font-semibold text-gray-800 dark:text-gray-300">
+          {selectedItemName ? `Meal Ideas for "${selectedItemName}"`: "Meal Ideas (select an ingredient)"} </h2>
           <MealIdeas ingredient={selectedItemName} />
         </div>
       </div>
