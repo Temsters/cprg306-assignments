@@ -38,9 +38,11 @@ return (
         {/* Left side: New item + item list */}
         <div className="flex-1 space-y-6">
           <NewItem onAddItem={handleAddItem} />
-          <ItemList items={items} onSelectItem={handleItemSelect} />
+          <div className="lex-1 space-y-3 -ml-15">
+            <ItemList items={items} onSelectItem={handleItemSelect} />
+          </div>
         </div>
-
+        
         {/* Right side: Meal ideas */}
         <div className="flex-1">
           <h2 className="block mb-2 text-lg font-semibold text-gray-800 dark:text-gray-300">
