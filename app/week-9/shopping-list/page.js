@@ -5,8 +5,10 @@ import NewItem from "./new-item";
 import itemsData from "./items.json";
 import MealIdeas from "./meal-ideas";
 import { useState } from "react";
+import { useUserAuth } from "../../contexts/AuthContext";
 
-//week 8 page
+
+//week 9 page
 export default function Page() {
   //initialize a state variable items with itemsData
   const [items, setItems] = useState(itemsData);
@@ -25,6 +27,14 @@ export default function Page() {
     cleanedName = cleanedName.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
     console.log("Selected ingredient:", cleanedName);
     setSelectedItemName(cleanedName);
+  }
+
+  //Function to retrieve user
+  const { user } = useUserAuth();
+
+  //Redirect if user is not logged in
+  if (!user) {
+    return null;
   }
 
 return (
