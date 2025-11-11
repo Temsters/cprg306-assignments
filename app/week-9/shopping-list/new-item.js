@@ -1,5 +1,5 @@
 "use client";
-import SimpleFormSubmission from "../components/SimpleFormSubmission";
+import SimpleFormSubmission from "../../components/SimpleFormSubmission";
 import { useState } from "react";
 
 //New item component
