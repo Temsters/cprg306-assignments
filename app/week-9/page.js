@@ -17,7 +17,7 @@ export default function Page() {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-blue-50 text-blue-900 font-sans p-6">
+    <main className="flex flex-col items-center justify-center min-h-screen bg-blue-300 dark:bg-gray-900 text-blue-900 font-sans p-6">
         {!user && (
         <div>
           <button onClick={handleLogin} className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
@@ -25,16 +25,16 @@ export default function Page() {
         </div>
       )}
      {user && (
-        <div className="text-center space-y-4">
-          <p className="text-lg">
-            Welcome, {user.displayName} ({user.email})
+        <div className="text-center space-y-11">
+          <p className="text-2xl text-black dark:text-white">
+            Welcome back, {user.displayName} ({user.email}) 😁
           </p>
 
           <button onClick={handleLogout} className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
             Logout</button>
 
           <div>
-            <a href="/week-9/shopping-list" className="text-blue-600 underline hover:text-blue-800 transition-colors">Go to Shopping List</a>
+            <a href="/week-9/shopping-list" className="text-lg text-black underlined dark:text-white hover:text-blue-800 transition-colors">Go to Shopping List</a>
           </div>
         </div>
       )}
