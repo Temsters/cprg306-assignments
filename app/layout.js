@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { AuthContextProvider } from "./contexts/AuthContext";
+import { AuthContextProvider } from "./contexts/AuthContext.js";
 
 
 const geistSans = Geist({
@@ -14,7 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export default function Layout({children}) {
-  return <AuthContextProvider>{children}</AuthContextProvider>;
+  return (
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <AuthContextProvider>{children}</AuthContextProvider>
+      </body>
+    </html>
+  ); 
 }
 
 export const metadata = {
