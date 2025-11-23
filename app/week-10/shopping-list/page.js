@@ -2,13 +2,13 @@
 
 import ItemList from "./item-list";
 import NewItem from "./new-item"; 
-import itemsData from "./items.json";
+import { getItems, addItem } from "../../_services/shopping-list-service";
 import MealIdeas from "./meal-ideas";
-import { useState } from "react";
+import { useEffect, useState,  } from "react";
 import { useUserAuth } from "../../contexts/AuthContext";
 
 
-//week 9 page
+//week 10 page
 export default function Page() {
   //initialize a state variable items with itemsData
   const [items, setItems] = useState(itemsData);
@@ -17,8 +17,14 @@ export default function Page() {
   const [selectedItemName, setSelectedItemName] = useState("");
 
   //Create an event handler function (e.g., handleAddItem) that adds a new item to items.
-  const handleAddItem = (item) => {
-    setItems((prevItems) => [...prevItems, item]);
+  const handleAddItem = async (item) => {
+    //add item to firestore using current user id
+    const newId = await addItem(user.uid, item);
+
+    //add id to new item objet
+    const newItem = { id: newId, ...item };
+    
+    setItems((prevItems) => [...prevItems, newItem]);
   };
 
   //Event handler function to handle item selection clean it up and update the selectedItemName state
@@ -29,12 +35,27 @@ export default function Page() {
     setSelectedItemName(cleanedName);
   }
 
+  //use useEffect to call loadItems
+  useEffect(() => {
+    loadItems();
+  }, []);
+
+
   //Function to retrieve user
   const { user } = useUserAuth();
 
   //Redirect if user is not logged in
   if (!user) {
     return null;
+  }
+
+  //Load items from Firestore to get the shopping list data
+  //async function to load items
+  async function loadItems() {
+    //call the getItems function to get the shopping list items for current user
+    const fetchedItems = await getItems(user.uid);
+    //use setItems to update the items state with fetchedItems
+    setItems(fetchedItems);
   }
 
 return (
