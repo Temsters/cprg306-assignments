@@ -1,5 +1,5 @@
 //import database 
-import { db } from "../utils/firebase";
+import { db } from "../../utils/firebase";
 //import firestore functions
 import { collection, getDocs, addDoc, query } from "firebase/firestore";
 
