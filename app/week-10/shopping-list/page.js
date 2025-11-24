@@ -4,17 +4,28 @@ import ItemList from "./item-list";
 import NewItem from "./new-item"; 
 import { getItems, addItem } from "../_services/shopping-list-service";
 import MealIdeas from "./meal-ideas";
-import { useEffect, useState,  } from "react";
+import { useEffect, useState } from "react";
 import { useUserAuth } from "../../contexts/AuthContext";
 
 
 //week 10 page
 export default function Page() {
+
+  //Function to retrieve user
+  const { user } = useUserAuth();
+
   //initialize a state variable items without itemsdata 
   const [items, setItems] = useState([]);
-
   //State variable for selectedItemName
   const [selectedItemName, setSelectedItemName] = useState("");
+
+  //async function to load items
+  async function loadItems() {
+    //call the getItems function to get the shopping list items for current user
+    const fetchedItems = await getItems(user.uid);
+    //use setItems to update the items state with fetchedItems
+    setItems(fetchedItems);
+  }
 
   //Create an event handler function (e.g., handleAddItem) that adds a new item to items.
   const handleAddItem = async (item) => {
@@ -33,29 +44,17 @@ export default function Page() {
     cleanedName = cleanedName.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
     console.log("Selected ingredient:", cleanedName);
     setSelectedItemName(cleanedName);
-  }
+  };
 
-  //use useEffect to call loadItems
-  useEffect(() => {
+  //use useEffect to load items when user changes
+    useEffect(() => {
+    if (!user) return;
     loadItems();
-  }, []);
-
-
-  //Function to retrieve user
-  const { user } = useUserAuth();
+  }, [user]); //run when user changes
 
   //Redirect if user is not logged in
   if (!user) {
     return null;
-  }
-
-  //Load items from Firestore to get the shopping list data
-  //async function to load items
-  async function loadItems() {
-    //call the getItems function to get the shopping list items for current user
-    const fetchedItems = await getItems(user.uid);
-    //use setItems to update the items state with fetchedItems
-    setItems(fetchedItems);
   }
 
 return (
