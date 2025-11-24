@@ -39,19 +39,16 @@ export default function ItemList() {
   //State variable called sortBy & setter called setSortBy
   const [sortBy, setSortBy] = useState("name");
 
-  const sortedItems = [...items];
+const sortedItems = [...items];
 
-  //Sort the items using state variable sortBy
-  // if sortBy is "name", sort alphabetically by name
-  if (sortBy === "name") {
-    sortedItems.sort((a, b) => a.name.localeCompare(b.name));
-  }
-  // if sortBy is "category", sort alphabetically by category
-  else if (sortBy === "category") {
-    sortedItems.sort((a, b) => a.category.localeCompare(b.category));
-  }
+if (sortBy === "name") {
+  sortedItems.sort((a, b) => a.name.localeCompare(b.name));
+} else if (sortBy === "category") {
+  sortedItems.sort((a, b) => a.category.localeCompare(b.category));
+}
 
-    //Use map to render the items
+  
+  //Use map to render the items
   const itemList = sortedItems.map((item, index) => (
     <Item
       key={item.id}
