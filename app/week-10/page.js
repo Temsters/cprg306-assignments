@@ -19,10 +19,19 @@ export default function Page() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-blue-300 dark:bg-gray-900 text-blue-900 font-sans p-6">
         {!user && (
-        <div>
-          <button onClick={handleLogin} className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
-            Login with GitHub</button>
-        </div>
+         <div className="border-2 border-blue-600 rounded-lg p-8 flex flex-col items-center space-y-6 bg-white dark:bg-[#1c1f23]">
+      <img
+        src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png"
+        alt="GitHub Logo"
+        className="w-16 h-16"
+      />
+      <button
+        onClick={handleLogin}
+        className="flex items-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors"
+      >
+        Login with GitHub
+      </button>
+    </div>
       )}
      {user && (
         <div className="text-center space-y-11">
