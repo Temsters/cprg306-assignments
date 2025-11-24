@@ -4,26 +4,10 @@ import Item from "./item";
 import { useState } from "react";
 import items from "./items.json";
 
-//item list component
-export default function ItemList() {
-  //State variable called sortBy & setter called setSortBy
-  const [sortBy, setSortBy] = useState("name");
 
-  const sortedItems = [...items];
-
-  //Sort the items using state variable sortBy
-  // if sortBy is "name", sort alphabetically by name
-  if (sortBy === "name") {
-    sortedItems.sort((a, b) => a.name.localeCompare(b.name));
-  }
-  // if sortBy is "category", sort alphabetically by category
-  else if (sortBy === "category") {
-    sortedItems.sort((a, b) => a.category.localeCompare(b.category));
-  }
-
-  //Create sort buttons for name and category
- const SortButtons = () => {
-  return (
+//sort buttons component
+function SortButtons({ sortBy, setSortBy }) {
+   return (
     <div className="flex justify-center gap-4 my-5">
       <button
         className={
@@ -48,10 +32,26 @@ export default function ItemList() {
       </button>
     </div>
   );
-};
+}
 
+//item list component
+export default function ItemList() {
+  //State variable called sortBy & setter called setSortBy
+  const [sortBy, setSortBy] = useState("name");
 
-  //Use map to render the items
+  const sortedItems = [...items];
+
+  //Sort the items using state variable sortBy
+  // if sortBy is "name", sort alphabetically by name
+  if (sortBy === "name") {
+    sortedItems.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  // if sortBy is "category", sort alphabetically by category
+  else if (sortBy === "category") {
+    sortedItems.sort((a, b) => a.category.localeCompare(b.category));
+  }
+
+    //Use map to render the items
   const itemList = sortedItems.map((item, index) => (
     <Item
       key={item.id}
