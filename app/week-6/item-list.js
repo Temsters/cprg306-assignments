@@ -48,26 +48,23 @@ if (sortBy === "name") {
 }
 
   
-  //Use map to render the items
-  const itemList = sortedItems.map((item, index) => (
-    <Item
-      key={item.id}
-      name={item.name}
-      quantity={item.quantity}
-      category={item.category}
-      bgColor={
-        index % 2 === 0
-          ? "bg-[oklch(44.3%_0.11_240.79)]"
-          : "bg-[oklch(29.3%_0.066_243.157)]"
-      }
-    />
-  ));
-
   //Return the UI
   return (
     <div>
-      <SortButtons />
-      {itemList}
+      <SortButtons sortBy={sortBy} setSortBy={setSortBy} />
+      {sortedItems.map((item, index) => (
+        <Item
+          key={item.id}
+          name={item.name}
+          quantity={item.quantity}
+          category={item.category}
+          bgColor={
+            index % 2 === 0
+              ? "bg-[oklch(44.3%_0.11_240.79)]"
+              : "bg-[oklch(29.3%_0.066_243.157)]"
+          }
+        />
+      ))}
     </div>
   );
 }
