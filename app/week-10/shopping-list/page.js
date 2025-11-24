@@ -2,7 +2,7 @@
 
 import ItemList from "./item-list";
 import NewItem from "./new-item"; 
-import { getItems, addItem } from "../../_services/shopping-list-service";
+import { getItems, addItem } from "../_services/shopping-list-service";
 import MealIdeas from "./meal-ideas";
 import { useEffect, useState,  } from "react";
 import { useUserAuth } from "../../contexts/AuthContext";
@@ -10,8 +10,8 @@ import { useUserAuth } from "../../contexts/AuthContext";
 
 //week 10 page
 export default function Page() {
-  //initialize a state variable items with itemsData
-  const [items, setItems] = useState(itemsData);
+  //initialize a state variable items without itemsdata 
+  const [items, setItems] = useState([]);
 
   //State variable for selectedItemName
   const [selectedItemName, setSelectedItemName] = useState("");
